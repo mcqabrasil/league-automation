@@ -1,0 +1,59 @@
+# Ruby CircleCI 2.0 configuration file
+dependencies:
+  pre:
+   - gem install bundler -v 1.14.5
+
+version: 2
+jobs:
+  Bundle_updates:
+    docker:
+      - image: circleci/ruby:2.6.0-node-browsers
+        environment:
+          BUNDLER_VERSION: 2.0.1
+        path: ~/capy   
+
+    steps:
+      - checkout
+      - restore_cache:
+          key: bundler-{{checksum "Gemfile.lock"}}
+      - save_cache:
+          key: bundler-{{checksum "Gemfile.lock"}}
+          paths:
+            - vendor/bundle
+
+      - run: gem install bundler:2.0.1
+      - run: bundle update --bundler
+      # - run: cucumber --init
+      # - run: bundle exec cucumber
+
+      # - run: bundle install
+      # - run: gem install cucumber
+      # - run: gem install capybara
+      # - run: gem install capybara-webkit
+      # - run: gem install selenium-webdriver
+      # - run: gem install rails
+      # - run: gem install rspec
+ 
+
+
+
+  Capy_Tests:
+    docker:
+      # specify the version you desire here
+      - image: circleci/ruby:2.6.0-node-browsers
+
+    steps:
+      - checkout
+      - run: gem install bundler:2.0.1
+      - run: bundle update --bundler
+      - run: echo "Second Build Passed!"
+
+workflows:
+  version: 2
+  build1_and_build2:
+    jobs:
+     - Bundle_updates
+     - Capy_Tests:
+        requires:  
+           - Bundle_updates
+       
