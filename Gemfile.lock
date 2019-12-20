@@ -17,13 +17,15 @@ GEM
     jaro_winkler (1.5.4)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
+    nokogiri (1.10.5)
+      mini_portile2 (~> 2.4.0)
     nokogiri (1.10.5-x64-mingw32)
       mini_portile2 (~> 2.4.0)
     parallel (1.19.0)
     parser (2.6.5.0)
       ast (~> 2.4.0)
     public_suffix (4.0.1)
-    rack (2.0.7)
+    rack (2.0.8)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rainbow (3.0.0)
@@ -60,6 +62,7 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
+  ruby
   x64-mingw32
 
 DEPENDENCIES
