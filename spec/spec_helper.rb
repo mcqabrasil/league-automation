@@ -65,4 +65,12 @@ Capybara.configure do |config|
     config.app_host = 'https://league-dev.myshopify.com'
     config.default_max_wait_time = 15
   end
+
+  Capybara.add_selector(:dt) do
+    css { |v| "*[data-testid=#{v}]" }
+  end
+
+  Capybara.add_selector(:nm) do
+    css { |v| "*[name=#{v}]" }
+  end
 end

@@ -1,6 +1,6 @@
 require "time"
 
-namespace :mcfadyen do
+namespace :league do
   task :runtest, [:browser] do |task, args|
     ENV['BROWSER'] = args[:browser]
 
@@ -13,7 +13,13 @@ namespace :mcfadyen do
     #Rake::Task['mcfadyen:work'].invoke(args[:browser])
   end
 
-  #task :work, [:option] do |task, args|
-  #  puts "work", args
-  #end
+  task :runtag, [:tags, :browser] do |task, args|
+    ENV['BROWSER'] = args[:browser]
+
+    time = Time.now.utc.iso8601.tr(":", "")
+    report = "--format html --out=log/report_#{time}.html"
+    command = "rspec --tag #{args[:tags]} #{report} --backtrace"
+    puts command
+    sh command
+  end
 end
