@@ -1,4 +1,8 @@
 # frozen_string_literal: true
+require_relative '../app/pages/page methods/header_met'
+require_relative '../app/pages/page methods/rewards_met'
+
+
 
 class HeaderAssertion
   include Capybara::DSL

@@ -32,4 +32,10 @@ class HeaderMethods < HeaderPage
   def get_currency_options
     find(:dt, CURRENCY_DD).text
   end
+
+  def write_search(content)
+    fill_in SEARCH_FLD, with: content
+  end
+
+
 end

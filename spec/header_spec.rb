@@ -24,7 +24,7 @@ describe 'Header behaviors verification' do
     page.reset!
   end
 
-  context "Header functions verification", :LM_38_03 do
+  context "Header functions verification", :LEAGUE4 do
     it 'Click on the Rewards Points', :LM_38_03_step_1 do
       @header.open_rewards_flyout
       @header_as.assert_rewards_flyout_opened
@@ -52,5 +52,21 @@ describe 'Header behaviors verification' do
     it 'Check Cart icon quantity', :LM_38_03_step_5 do
       # missing to check step 5 after development complete
     end
+  end
+
+  context "Search by valid data", :LEAGUE4 do
+
+  end
+
+  context "Search's suggestions verification", :LEAGUE40  do
+
+  end
+
+  context "Search autocorrection verfification", :LEAGUE41 do
+
+  end
+
+  context "Search with Special Characters", :LEAGUE38 do
+
   end
 end
