@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require_relative '../app/pages/page methods/footer_met'
 
 class FooterAssertion
     include Capybara::DSL

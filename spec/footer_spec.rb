@@ -1,5 +1,6 @@
 require_relative '../app/pages/page methods/mega-menu_met'
-require_relative '../app/assertions/footer_met'
+require_relative '../app/pages/page methods/footer_met'
+require_relative '../app/pages/page methods/login_met'
 require_relative '../app/assertions/footer_assert'
 
 
